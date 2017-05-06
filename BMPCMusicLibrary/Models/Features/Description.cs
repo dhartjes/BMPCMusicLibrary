@@ -5,14 +5,14 @@ using System.Web;
 
 namespace BMPCMusicLibrary.Models.Features
 {
-    public class Note : Feature
+    public class Description : Feature
     {
         public new string Value { get; set; }
 
-        public Note()
+        public Description()
         {
-            ID = (int)FeatureType.Note;
-            Name = "Note";
+            ID = (int)FeatureType.Description;
+            Name = "Description";
         }
     }
 }

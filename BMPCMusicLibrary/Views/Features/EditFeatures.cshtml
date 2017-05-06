@@ -1,0 +1,14 @@
+﻿@model BMPCMusicLibrary.ViewModels.PieceFeaturesViewModel
+@{
+    ViewBag.Title = "EditFeatures";
+}
+
+<h2>Edit Features</h2>
+
+<div>
+    <h4>@Model.PieceTitle by @Model.PieceComposer</h4>
+    <hr />
+
+    @Html.EnumDropDownListFor(x => x.Features.FirstOrDefault().FeatureType, "Select Feature Type", new { @class = "form-control" })
+
+</div>

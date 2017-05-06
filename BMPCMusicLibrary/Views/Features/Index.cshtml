@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BMPCMusicLibrary.ViewModels.PieceFeaturesViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(x => x.PieceTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.PieceComposer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(x => x.Features)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PieceTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PieceComposer)
+            </td>
+            <td>
+                @foreach (var feature in item.Features)
+                {
+                    @Html.ActionLink(feature.Name, "ShowFeature", new { id = item.PieceID, featureId = feature.ID })
+                }
+                @Html.DisplayFor(modelItem => item.Features)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Features", "EditFeatures", new { id = item.PieceID })
+            </td>
+        </tr>
+    }
+
+</table>
